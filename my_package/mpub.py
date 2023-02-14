@@ -10,8 +10,9 @@ class M_pub(Node):
     self.count = 0
   def pubmessage(self):
     msg = String()
-    msg.data = 'hello world' + str(self.count)
+    msg.data = f'hello world : {self.count}'
     self.pub.publish(msg)
+    self.get_logger().info(f'Sending message : {msg.data}')
     self.count += 1
 
 def main():
