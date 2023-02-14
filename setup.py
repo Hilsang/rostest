@@ -1,6 +1,9 @@
 from setuptools import setup
+import os
+import glob
 
 package_name = 'my_package'
+share_dir = 'share/' + package_name
 
 setup(
     name=package_name,
@@ -10,6 +13,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (share_dir + '/launch', glob.glob(os.path.join('launch', '*.launch.py'))),
+        (share_dir + '/param', glob.glob(os.path.join('param', '*.yaml'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,7 +29,8 @@ setup(
             'ms = my_package.msub:main',
             'mtp = my_package.mtpub:main',
             'mts = my_package.mtsub:main',
-            'moveturtle = my_package.move_turtle:main'
+            'moveturtle = my_package.move_turtle:main',
+            'moveturtle2 = my_package.move_turtle2:main'
         ],
     },
 )
