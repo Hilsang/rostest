@@ -21,7 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'mp = my_package.mpub:main',
-            'ms = my_package.msub:main'
+            'ms = my_package.msub:main',
+            'mtp = my_package.mtpub:main',
+            'mts = my_package.mtsub:main'
         ],
     },
 )

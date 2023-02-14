@@ -5,7 +5,7 @@ from std_msgs.msg import String
 
 class Mt_sub(Node):
   def __init__(self):
-    super().__init__('msub')
+    super().__init__('mtsub')
     self.qos = QoSProfile(depth = 10)
     self.pub = self.create_subscription(String, 'time', self.messagesub, self.qos)
 
