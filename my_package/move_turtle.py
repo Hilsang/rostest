@@ -19,7 +19,7 @@ class M_turtle(Node):
     msg.angular.y = 0.0
     msg.angular.z = 0.5
     self.pub.publish(msg)
-    self.get_logger().info(f'Sending message : {msg.data}')
+    self.get_logger().info(f'Sending message : {msg}')
     self.count += 1
 
 def main():
