@@ -16,12 +16,12 @@ class Mt_pub(Node):
     msg = String()
     msg.data = f'hello world : {self.count}'
     self.pub.publish(msg)
-    self.get_logger().info(f'Sending message : {msg.data}')
+    self.get_logger().info(f'Sending message : [{msg.data}]')
     self.count += 1
 
   def pubtime(self):
     tmsg = String()
-    tmsg = f'publish time : {self.count}'
+    tmsg.data = f'publish time : {self.time}'
     self.tpub.publish(tmsg)
     self.time += 0.1
 
