@@ -10,6 +10,8 @@ class Mt_pub(Node):
     self.create_timer(1, self.pubmessage)
     self.create_timer(0.1, self.pubtime)
     self.count = 0
+    self.time = 0
+
   def pubmessage(self):
     msg = String()
     msg.data = f'hello world : {self.count}'
