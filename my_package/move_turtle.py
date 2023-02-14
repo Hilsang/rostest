@@ -10,6 +10,7 @@ class M_turtle(Node):
     self.pub = self.create_publisher(Twist, 'turtle1/cmd_vel', self.qos)
     self.create_timer(0.1, self.pubmessage)
     self.vel = 0
+
   def pubmessage(self):
     msg = Twist()
     msg.linear.x = self.vel

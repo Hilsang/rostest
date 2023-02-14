@@ -24,7 +24,7 @@ setup(
             'ms = my_package.msub:main',
             'mtp = my_package.mtpub:main',
             'mts = my_package.mtsub:main',
-            'moveturtle = my_package.moveturtle:main'
+            'moveturtle = my_package.move_turtle:main'
         ],
     },
 )
