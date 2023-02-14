@@ -10,7 +10,7 @@ class Mt_sub(Node):
     self.pub = self.create_subscription(String, 'time', self.messagesub, self.qos)
 
   def messagesub(self, msg):
-    self.get_logger().info(msg.data)
+    self.get_logger().info(f'Incoming time : [{msg.data}]')
 def main():
   rclpy.init()
   node = Mt_sub()
