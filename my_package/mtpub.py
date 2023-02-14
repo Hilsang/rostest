@@ -1,25 +1,31 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from datetime import datetime
 
-class M_tpub(Node):
+class Mt_pub(Node):
   def __init__(self):
     super().__init__('mtpub')
-    self.pub = self.create_publisher(String, 'time', 10)
-    self.create_timer(1, self.pubtime)
+    self.pub = self.create_publisher(String, 'message', 10)
+    self.tpub = self.create_publisher(String, 'time', 10)
+    self.create_timer(1, self.pubmessage)
+    self.create_timer(0.1, self.pubtime)
     self.count = 0
-  def pubtime(self):
-    time = String()
-    now = datetime.now()
-    time.data = now.time
-    self.pub.publish(time)
-    self.get_logger().info(f'Sending message : {time.data}')
+  def pubmessage(self):
+    msg = String()
+    msg.data = f'hello world : {self.count}'
+    self.pub.publish(msg)
+    self.get_logger().info(f'Sending message : {msg.data}')
     self.count += 1
+
+  def pubtime(self):
+    tmsg = String()
+    tmsg = f'publish time : {self.count}'
+    self.tpub.publish(tmsg)
+    self.time += 0.1
 
 def main():
   rclpy.init()
-  node = M_tpub()
+  node = Mt_pub()
   try:
     rclpy.spin(node)
   except:
