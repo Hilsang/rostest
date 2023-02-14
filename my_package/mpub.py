@@ -17,7 +17,7 @@ def main():
   rclpy.init()
   node = M_pub()
   try:
-    rclpy.spin()
+    rclpy.spin(node)
   except:
     node.destroy_node()
 
