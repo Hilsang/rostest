@@ -8,10 +8,10 @@ class M_pub(Node):
     self.pub = self.create_publisher(String, 'messagepub', 10)
     self.create_timer(1, self.pubmessage)
 
-    def pubmessage(self):
-      msg = String()
-      msg.data = 'hello world'
-      self.pub.publish(msg)
+  def pubmessage(self):
+    msg = String()
+    msg.data = 'hello world'
+    self.pub.publish(msg)
 
 def main():
   rclpy.init()
