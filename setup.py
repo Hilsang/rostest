@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'mp = my_package.mpub:main'
+            'mp = my_package.mpub:main',
+            'ms = my_package.msub:main'
         ],
     },
 )
