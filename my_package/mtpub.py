@@ -3,9 +3,9 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from datetime import datetime
 
-class M_pub(Node):
+class M_tpub(Node):
   def __init__(self):
-    super().__init__('mpub')
+    super().__init__('mtpub')
     self.pub = self.create_publisher(String, 'time', 10)
     self.create_timer(1, self.pubtime)
     self.count = 0
@@ -19,7 +19,7 @@ class M_pub(Node):
 
 def main():
   rclpy.init()
-  node = M_pub()
+  node = M_tpub()
   try:
     rclpy.spin(node)
   except:
