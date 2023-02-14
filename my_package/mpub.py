@@ -5,13 +5,14 @@ from std_msgs.msg import String
 class M_pub(Node):
   def __init__(self):
     super().__init__('mpub')
-    self.pub = self.create_publisher(String, 'messagepub', 10)
+    self.pub = self.create_publisher(String, 'message', 10)
     self.create_timer(1, self.pubmessage)
-
+    self.count = 0
   def pubmessage(self):
     msg = String()
-    msg.data = 'hello world'
+    msg.data = 'hello world' + str(self.count)
     self.pub.publish(msg)
+    self.count += 1
 
 def main():
   rclpy.init()
