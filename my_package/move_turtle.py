@@ -5,7 +5,7 @@ from rclpy.qos import QoSProfile
 
 class M_turtle(Node):
   def __init__(self):
-    super().__init__('move turtle')
+    super().__init__('move_turtle')
     self.qos = QoSProfile(depth = 10)
     self.pub = self.create_publisher(Twist, 'turtle1/cmd_vel', self.qos)
     self.create_timer(0.1, self.pubmessage)
