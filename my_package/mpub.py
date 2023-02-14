@@ -6,7 +6,7 @@ class M_pub(Node):
   def __init__(self):
     super().__init__('mpub')
     self.pub = self.create_publisher(String, 'messagepub', 10)
-    self.create_timer(1, self.pub.pubmessage)
+    self.create_timer(1, self.pubmessage)
 
     def pubmessage(self):
       msg = String()
